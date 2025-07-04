@@ -1,11 +1,69 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
 
+:root {
+  --color-bg: #111216;
+  --color-bg-section: #181a1f;
+  --color-text: #f3f3f3;
+  --color-highlight: #ff4d2e;
+  --color-highlight-dark: #c92a00;
+  --color-highlight-glow: 0 0 8px #ff4d2e88;
+}
+
 html, body {
   font-family: 'Montserrat', Arial, sans-serif;
-  background: #f7f9fb;
-  color: #222;
+  background: var(--color-bg);
+  color: var(--color-text);
   margin: 0;
   padding: 0;
+}
+
+/* Menu Superior */
+.headerMenu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  background: rgba(17, 18, 22, 0.98);
+  z-index: 100;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.04);
+  padding: 0;
+}
+.navMenu {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.5rem 2rem;
+}
+.logoMenu {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.logoMenu img {
+  width: 36px !important;
+  height: auto !important;
+}
+.menuLinks {
+  display: flex;
+  gap: 2rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.menuLinks li a {
+  color: var(--color-text);
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1rem;
+  letter-spacing: 0.02em;
+  transition: color 0.2s;
+}
+.menuLinks li a:hover,
+.menuLinks li a:focus {
+  color: var(--color-highlight);
+  text-shadow: var(--color-highlight-glow);
 }
 
 .fullpage {
@@ -14,7 +72,8 @@ html, body {
   height: 100vh;
   overflow-y: auto;
   scroll-snap-type: y mandatory;
-  scroll-behavior: smooth;
+  scroll-behavior: auto;
+  padding-top: 70px; /* espaço extra para o menu */
 }
 
 .section {
@@ -27,7 +86,7 @@ html, body {
   scroll-snap-align: start;
   opacity: 0;
   transform: translateY(40px);
-  transition: opacity 0.8s cubic-bezier(.4,0,.2,1), transform 0.8s cubic-bezier(.4,0,.2,1);
+  transition: opacity 0.9s cubic-bezier(.4,0,.2,1), transform 0.9s cubic-bezier(.4,0,.2,1);
 }
 .section.section-visible {
   opacity: 1;
@@ -35,8 +94,8 @@ html, body {
 }
 
 .homeSection {
-  background: #0a2540;
-  color: #fff;
+  background: #181a1f;
+  color: var(--color-text);
   text-align: center;
   position: relative;
 }
@@ -58,7 +117,7 @@ html, body {
 }
 .btnScroll {
   display: inline-block;
-  background: #0077ff;
+  background: var(--color-highlight);
   color: #fff;
   padding: 0.8rem 2rem;
   border-radius: 30px;
@@ -66,9 +125,11 @@ html, body {
   text-decoration: none;
   font-size: 1.1rem;
   transition: background .2s;
+  box-shadow: var(--color-highlight-glow);
 }
 .btnScroll:hover {
-  background: #005bb5;
+  background: var(--color-highlight-dark);
+  color: #fff;
 }
 
 .sobreSection .descricao {
@@ -82,7 +143,8 @@ html, body {
   justify-content: center;
 }
 .destaqueItem {
-  background: #fff;
+  background: #181a1f;
+  color: var(--color-text);
   border-radius: 16px;
   box-shadow: 0 2px 8px rgba(0,0,0,0.06);
   padding: 2rem 1.5rem;
@@ -108,7 +170,8 @@ html, body {
   max-width: 1100px;
 }
 .servico {
-  background: #fff;
+  background: #181a1f;
+  color: var(--color-text);
   border-radius: 16px;
   box-shadow: 0 2px 8px rgba(0,0,0,0.05);
   padding: 2rem 1rem;
@@ -133,7 +196,8 @@ html, body {
 }
 .projetoCard {
   min-width: 320px;
-  background: #fff;
+  background: #181a1f;
+  color: var(--color-text);
   border-radius: 16px;
   box-shadow: 0 2px 8px rgba(0,0,0,0.06);
   overflow: hidden;
@@ -166,7 +230,8 @@ html, body {
   margin-bottom: 2rem;
 }
 .depoimento {
-  background: #fff;
+  background: #181a1f;
+  color: var(--color-text);
   border-radius: 16px;
   box-shadow: 0 2px 8px rgba(0,0,0,0.06);
   padding: 2rem 1.5rem;
@@ -204,8 +269,8 @@ html, body {
 }
 
 .contatoSection {
-  background: #0a2540;
-  color: #fff;
+  background: #181a1f;
+  color: var(--color-text);
 }
 .contatoForm {
   display: flex;
@@ -224,7 +289,7 @@ html, body {
   resize: none;
 }
 .contatoForm button {
-  background: #0077ff;
+  background: var(--color-highlight);
   color: #fff;
   border: none;
   border-radius: 30px;
@@ -233,10 +298,12 @@ html, body {
   font-size: 1.1rem;
   cursor: pointer;
   transition: background .2s;
+  box-shadow: var(--color-highlight-glow);
 }
 .contatoForm button:hover {
-  background: #005bb5;
+  background: var(--color-highlight-dark);
 }
+
 .alternativasContato {
   text-align: center;
 }
@@ -256,11 +323,11 @@ html, body {
 }
 
 .footerSection {
-  background: #fff;
-  color: #222;
+  background: #181a1f;
+  color: var(--color-text);
   text-align: center;
   padding: 2rem 1rem 1rem 1rem;
-  border-top: 1px solid #eaeaea;
+  border-top: 1px solid #23242a;
 }
 .logoMini {
   width: 60px;
@@ -270,7 +337,7 @@ html, body {
   margin: 1rem 0;
 }
 .footerLinks a {
-  color: #0077ff;
+  color: var(--color-highlight);
   text-decoration: none;
   margin: 0 0.5rem;
   font-weight: 700;
@@ -280,6 +347,80 @@ html, body {
   color: #888;
 }
 
+/* Menu Hamburguer */
+.hamburgerBtn {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0.5rem;
+  margin-left: 0;
+  z-index: 110;
+}
+.hamburgerIcon {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  width: 36px;
+  height: 28px;
+  justify-content: center;
+}
+.hamburgerIcon span {
+  display: block;
+  height: 4px;
+  width: 100%;
+  background: #fff;
+  border-radius: 2px;
+  transition: all 0.3s;
+}
+
+/* Indicadores de navegação lateral */
+.navIndicators {
+  position: fixed;
+  top: 50%;
+  right: 2vw;
+  transform: translateY(-50%);
+  z-index: 120;
+  display: flex;
+  flex-direction: column;
+  gap: 1.1rem;
+  pointer-events: none;
+}
+.navIndicators ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1.1rem;
+}
+.navIndicators li {
+  pointer-events: auto;
+}
+.indicator {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  border: 2px solid var(--color-highlight);
+  background: #23242a;
+  opacity: 0.7;
+  cursor: pointer;
+  transition: background 0.2s, opacity 0.2s, border 0.2s;
+  outline: none;
+  box-shadow: var(--color-highlight-glow);
+}
+.indicator:hover,
+.indicator:focus {
+  background: var(--color-highlight);
+  border: 2px solid var(--color-highlight-dark);
+  box-shadow: 0 0 0 6px #ff4d2e33;
+}
+.indicatorActive {
+  background: var(--color-highlight) !important;
+  border: 2px solid var(--color-highlight-dark) !important;
+  opacity: 1 !important;
+  box-shadow: 0 0 0 8px #ff4d2e33;
+}
 @media (max-width: 900px) {
   .destaques, .servicosSection .servicosGrid, .depoimentosSection .depoimentosCarousel, .clientesLogos {
     flex-direction: column;
@@ -289,19 +430,119 @@ html, body {
   .servicosSection .servicosGrid {
     grid-template-columns: 1fr;
   }
+  .navIndicators {
+    right: 1vw;
+    gap: 0.7rem;
+  }
+  .navIndicators ul {
+    gap: 0.7rem;
+  }
+  .indicator {
+    width: 13px;
+    height: 13px;
+  }
 }
-
+@media (max-width: 800px) {
+  .navMenu {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.5rem 1rem;
+  }
+  .logoMenu {
+    order: 1;
+  }
+  .hamburgerBtn {
+    display: block;
+    order: 2;
+    margin-left: auto;
+  }
+  .menuLinks {
+    left: 0;
+    right: 0;
+    top: 100%;
+    position: absolute;
+    width: 100vw;
+  }
+}
 @media (max-width: 600px) {
+  .headerMenu {
+    padding: 0;
+  }
+  .navMenu {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0.5rem 0.5rem;
+  }
+  .logoMenu {
+    order: 1;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+  }
+  .menuLinks {
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    font-size: 0.95rem;
+    justify-content: flex-start;
+  }
+  .logoMenu img {
+    width: 32px !important;
+    height: auto !important;
+  }
+  .hamburgerIcon {
+    width: 32px;
+    height: 24px;
+  }
+  .fullpage {
+    padding-top: 80px;
+  }
   .section {
-    padding: 3rem 0.5rem 1.5rem 0.5rem;
+    min-height: unset;
+    padding: 2.2rem 0.2rem 1rem 0.2rem;
   }
   .homeSection h1 {
-    font-size: 1.5rem;
+    font-size: 1.1rem;
   }
   .homeSection h2 {
-    font-size: 1rem;
+    font-size: 0.95rem;
+  }
+  .servicosSection .servicosGrid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  .servico {
+    padding: 1.2rem 0.5rem;
+  }
+  .projetosSection .projetosCarousel {
+    gap: 1rem;
+    padding: 1rem 0;
   }
   .projetoCard {
-    min-width: 220px;
+    min-width: 160px;
+    max-width: 95vw;
+  }
+  .depoimentosSection .depoimentosCarousel {
+    gap: 1rem;
+    flex-direction: column;
+  }
+  .depoimento {
+    min-width: 160px;
+    max-width: 95vw;
+    padding: 1.2rem 0.5rem;
+  }
+  .clientesLogos {
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+  .contatoForm {
+    max-width: 98vw;
+    padding: 0 0.2rem;
+  }
+  .footerSection {
+    padding: 1rem 0.2rem 0.5rem 0.2rem;
+  }
+  .navIndicators {
+    display: none;
   }
 }
