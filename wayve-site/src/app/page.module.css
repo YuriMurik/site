@@ -1,0 +1,307 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
+
+html, body {
+  font-family: 'Montserrat', Arial, sans-serif;
+  background: #f7f9fb;
+  color: #222;
+  margin: 0;
+  padding: 0;
+}
+
+.fullpage {
+  width: 100vw;
+  overflow-x: hidden;
+  height: 100vh;
+  overflow-y: auto;
+  scroll-snap-type: y mandatory;
+  scroll-behavior: smooth;
+}
+
+.section {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 4rem 1rem 2rem 1rem;
+  scroll-snap-align: start;
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.8s cubic-bezier(.4,0,.2,1), transform 0.8s cubic-bezier(.4,0,.2,1);
+}
+.section.section-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.homeSection {
+  background: #0a2540;
+  color: #fff;
+  text-align: center;
+  position: relative;
+}
+.logoCentralizada {
+  margin-bottom: 2rem;
+}
+.logoWayve {
+  width: 120px;
+  height: auto;
+}
+.homeSection h1 {
+  font-size: 2.5rem;
+  margin: 0.5rem 0;
+}
+.homeSection h2 {
+  font-size: 1.3rem;
+  font-weight: 400;
+  margin-bottom: 2rem;
+}
+.btnScroll {
+  display: inline-block;
+  background: #0077ff;
+  color: #fff;
+  padding: 0.8rem 2rem;
+  border-radius: 30px;
+  font-weight: 700;
+  text-decoration: none;
+  font-size: 1.1rem;
+  transition: background .2s;
+}
+.btnScroll:hover {
+  background: #005bb5;
+}
+
+.sobreSection .descricao {
+  max-width: 600px;
+  text-align: center;
+  margin-bottom: 2rem;
+}
+.destaques {
+  display: flex;
+  gap: 2rem;
+  justify-content: center;
+}
+.destaqueItem {
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+  padding: 2rem 1.5rem;
+  text-align: center;
+  transition: transform .2s, box-shadow .2s;
+}
+.destaqueItem:hover {
+  transform: translateY(-8px) scale(1.04);
+  box-shadow: 0 8px 24px rgba(0,119,255,0.08);
+}
+.destaqueItem .icon {
+  font-size: 2.5rem;
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+.servicosSection .servicosGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+  width: 100%;
+  max-width: 1100px;
+}
+.servico {
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  padding: 2rem 1rem;
+  text-align: center;
+  transition: transform .2s, box-shadow .2s;
+}
+.servico:hover {
+  transform: translateY(-8px) scale(1.03);
+  box-shadow: 0 8px 24px rgba(0,119,255,0.08);
+}
+.servico img, .servico :global(svg) {
+  width: 48px;
+  margin-bottom: 1rem;
+}
+
+.projetosSection .projetosCarousel {
+  display: flex;
+  gap: 2rem;
+  overflow-x: auto;
+  padding: 2rem 0;
+  scroll-snap-type: x mandatory;
+}
+.projetoCard {
+  min-width: 320px;
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+  overflow: hidden;
+  scroll-snap-align: start;
+  transition: transform .2s, box-shadow .2s;
+}
+.projetoCard:hover {
+  transform: scale(1.04);
+  box-shadow: 0 8px 24px rgba(0,119,255,0.08);
+}
+.projetoCard img, .projetoCard :global(svg) {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+}
+.projetoInfo {
+  padding: 1rem;
+}
+.techStack {
+  display: block;
+  font-size: 0.9rem;
+  color: #0077ff;
+  margin-top: 0.5rem;
+}
+
+.depoimentosSection .depoimentosCarousel {
+  display: flex;
+  gap: 2rem;
+  justify-content: center;
+  margin-bottom: 2rem;
+}
+.depoimento {
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+  padding: 2rem 1.5rem;
+  text-align: center;
+  min-width: 260px;
+  max-width: 320px;
+}
+.depoimento img, .depoimento :global(svg) {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 1rem;
+}
+.clienteNome {
+  display: block;
+  margin-top: 0.5rem;
+  font-weight: 700;
+  color: #0077ff;
+}
+.clientesLogos {
+  display: flex;
+  gap: 2rem;
+  justify-content: center;
+  align-items: center;
+  margin-top: 1rem;
+}
+.clientesLogos img, .clientesLogos :global(svg) {
+  height: 36px;
+  opacity: 0.7;
+  transition: opacity .2s;
+}
+.clientesLogos img:hover, .clientesLogos :global(svg):hover {
+  opacity: 1;
+}
+
+.contatoSection {
+  background: #0a2540;
+  color: #fff;
+}
+.contatoForm {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  max-width: 400px;
+  width: 100%;
+  margin: 0 auto 2rem auto;
+}
+.contatoForm input,
+.contatoForm textarea {
+  padding: 0.8rem 1rem;
+  border-radius: 8px;
+  border: none;
+  font-size: 1rem;
+  resize: none;
+}
+.contatoForm button {
+  background: #0077ff;
+  color: #fff;
+  border: none;
+  border-radius: 30px;
+  padding: 0.8rem;
+  font-weight: 700;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: background .2s;
+}
+.contatoForm button:hover {
+  background: #005bb5;
+}
+.alternativasContato {
+  text-align: center;
+}
+.redesSociais {
+  margin-top: 1rem;
+  display: flex;
+  gap: 1.5rem;
+  justify-content: center;
+}
+.redesSociais img, .redesSociais :global(svg) {
+  width: 28px;
+  opacity: 0.8;
+  transition: opacity .2s;
+}
+.redesSociais img:hover, .redesSociais :global(svg):hover {
+  opacity: 1;
+}
+
+.footerSection {
+  background: #fff;
+  color: #222;
+  text-align: center;
+  padding: 2rem 1rem 1rem 1rem;
+  border-top: 1px solid #eaeaea;
+}
+.logoMini {
+  width: 60px;
+  margin-bottom: 1rem;
+}
+.footerLinks {
+  margin: 1rem 0;
+}
+.footerLinks a {
+  color: #0077ff;
+  text-decoration: none;
+  margin: 0 0.5rem;
+  font-weight: 700;
+}
+.cookies {
+  font-size: 0.9rem;
+  color: #888;
+}
+
+@media (max-width: 900px) {
+  .destaques, .servicosSection .servicosGrid, .depoimentosSection .depoimentosCarousel, .clientesLogos {
+    flex-direction: column;
+    gap: 1.2rem;
+    align-items: center;
+  }
+  .servicosSection .servicosGrid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 600px) {
+  .section {
+    padding: 3rem 0.5rem 1.5rem 0.5rem;
+  }
+  .homeSection h1 {
+    font-size: 1.5rem;
+  }
+  .homeSection h2 {
+    font-size: 1rem;
+  }
+  .projetoCard {
+    min-width: 220px;
+  }
+}
