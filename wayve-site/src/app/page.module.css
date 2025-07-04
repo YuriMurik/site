@@ -1,21 +1,5 @@
+
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
-
-:root {
-  --color-bg: #111216;
-  --color-bg-section: #181a1f;
-  --color-text: #f3f3f3;
-  --color-highlight: #ff4d2e;
-  --color-highlight-dark: #c92a00;
-  --color-highlight-glow: 0 0 8px #ff4d2e88;
-}
-
-html, body {
-  font-family: 'Montserrat', Arial, sans-serif;
-  background: var(--color-bg);
-  color: var(--color-text);
-  margin: 0;
-  padding: 0;
-}
 
 /* Menu Superior */
 .headerMenu {
